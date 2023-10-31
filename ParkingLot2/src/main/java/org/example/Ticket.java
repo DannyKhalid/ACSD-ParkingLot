@@ -1,12 +1,17 @@
 package org.example;
 
 public interface Ticket {
-    public int getDays();
-    public int getHours();
-    public int getMinutes();
+    int getDays();
 
-    public void setEntryTime(String entryTime);
+    int getHours();
 
-    public void setExitTime(String exitTime);
+    int getMinutes();
+
+    long getCheckInTime();
+
+    void setEntryTime(String entryTime);
+
+    void setExitTime(String exitTime);
+
 
 }

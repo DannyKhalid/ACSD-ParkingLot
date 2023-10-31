@@ -12,7 +12,8 @@ import java.time.format.DateTimeFormatter;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParkingLotStepDefinitions {
-    Ticket ticket = new TicketImpl();
+    long checkInTime = System.currentTimeMillis();
+    Ticket ticket = new TicketImpl(checkInTime);
     ParkingLot parkingLot;
     LocalDateTime entryTime;
     LocalDateTime exitTime;

@@ -1,17 +1,25 @@
 package org.example;
 
-public class LongTermParkingLot implements ParkingLot{
+public class LongTermParkingLot implements ParkingLot {
+
     @Override
     public int calculateFee(Ticket ticket) {
-// ToDo:  Use TDD to Implement this function
-//  You will need to mock the Ticket interface
-//  Business rules for this parking lot are as follows:
-//        Basic fee is $2 per hour or fraction thereof
-//        This means we always round up; ie, 4 hours 2 minutes is billed as 5 hours.
-//        There is no pro-ration
-//        Daily max is $15
-//        On the first day, the first half hour is free
+        int days = ticket.getDays();
+        int hours = ticket.getHours();
+        int minutes = ticket.getMinutes();
 
-        return 0;
+        if (days == 0 && hours == 0 && minutes <= 30) {
+            return 0;
+        }
+
+        int feeForDay = hours * 2;
+        if (minutes > 0) {
+            feeForDay += 2;
+        }
+
+        feeForDay = Math.min(feeForDay, 15);
+
+        return days * 15 + feeForDay;
     }
+
 }
